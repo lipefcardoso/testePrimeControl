@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.1 (Python 3.9.7 on win32)" generated="20211009 05:54:18.983" rpa="false" schemaversion="2">
+<suite id="s1" name="Robot" source="c:\Users\Felipe\Desktop\Teste Prime Control\robot.robot">
+<kw name="Open Browser" library="Selenium2Library" type="SETUP">
+<arg>${url_whatismyip}</arg>
+<arg>${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20211009 05:54:20.268" level="INFO">Opening browser 'Chrome' to base url 'https://www.whatismyip.com/'.</msg>
+<status status="PASS" starttime="20211009 05:54:20.267" endtime="20211009 05:54:24.769"/>
+</kw>
+<test id="s1-t1" name="Access whatismyip.com">
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20211009 05:54:24.770" endtime="20211009 05:54:24.891"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>${element_ipv4}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211009 05:54:24.891" endtime="20211009 05:54:25.336"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${counter}</var>
+<value>10</value>
+<iter>
+<var name="${counter}">0</var>
+<kw name="Get Text" library="Selenium2Library">
+<var>${input_ip_adress}</var>
+<arg>${element_ipv4}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20211009 05:54:25.350" level="INFO">${input_ip_adress} = 179.111.38.190</msg>
+<status status="PASS" starttime="20211009 05:54:25.337" endtime="20211009 05:54:25.350"/>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>"${input_ip_adress}" != "Not Yet Detected"</arg>
+<doc>Stops executing the enclosing for loop if the ``condition`` is true.</doc>
+<msg timestamp="20211009 05:54:25.351" level="INFO">Exiting for loop altogether.</msg>
+<status status="PASS" starttime="20211009 05:54:25.351" endtime="20211009 05:54:25.351"/>
+</kw>
+<status status="PASS" starttime="20211009 05:54:25.337" endtime="20211009 05:54:25.351"/>
+</iter>
+<status status="PASS" starttime="20211009 05:54:25.336" endtime="20211009 05:54:25.351"/>
+</for>
+<status status="PASS" starttime="20211009 05:54:24.769" endtime="20211009 05:54:25.352"/>
+</test>
+<test id="s1-t2" name="Access Clash Royale Login Page">
+<kw name="Go To" library="Selenium2Library">
+<arg>${url_clash_royale}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211009 05:54:25.353" level="INFO">Opening url 'https://developer.clashroyale.com'</msg>
+<status status="PASS" starttime="20211009 05:54:25.352" endtime="20211009 05:54:26.299"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>${element_login_link}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211009 05:54:26.299" endtime="20211009 05:54:26.740"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${element_login_link}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20211009 05:54:26.741" level="INFO">Clicking element 'xpath=//*[@id='content']/div/div[2]/div/header/div/div/div[3]/div/a[2]'.</msg>
+<status status="PASS" starttime="20211009 05:54:26.741" endtime="20211009 05:54:26.778"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>${element_email}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211009 05:54:26.778" endtime="20211009 05:54:26.794"/>
+</kw>
+<status status="PASS" starttime="20211009 05:54:25.352" endtime="20211009 05:54:26.795"/>
+</test>
+<test id="s1-t3" name="Login">
+<kw name="Input Text" library="Selenium2Library">
+<arg>${element_email}</arg>
+<arg>${input_email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211009 05:54:26.796" level="INFO">Typing text 'lipe_fcardoso@hotmail.com' into text field 'id=email'.</msg>
+<status status="PASS" starttime="20211009 05:54:26.795" endtime="20211009 05:54:26.875"/>
+</kw>
+<kw name="Input Password" library="Selenium2Library">
+<arg>${element_password}</arg>
+<arg>${input_password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20211009 05:54:26.876" level="INFO">Typing password into text field 'id=password'.</msg>
+<msg timestamp="20211009 05:54:26.902" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20211009 05:54:26.942" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20211009 05:54:26.875" endtime="20211009 05:54:26.942"/>
+</kw>
+<kw name="Click Button" library="Selenium2Library">
+<arg>${element_login_button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20211009 05:54:26.942" level="INFO">Clicking button 'xpath=//*[@id="content"]/div/div[2]/div/div/div/div/div/div/form/div[4]/button'.</msg>
+<status status="PASS" starttime="20211009 05:54:26.942" endtime="20211009 05:54:26.986"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>${element_account_name}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211009 05:54:26.987" endtime="20211009 05:54:27.847"/>
+</kw>
+<status status="PASS" starttime="20211009 05:54:26.795" endtime="20211009 05:54:27.847"/>
+</test>
+<test id="s1-t4" name="Access My Account">
+<kw name="Click Element" library="Selenium2Library">
+<arg>${element_account_name}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20211009 05:54:27.848" level="INFO">Clicking element 'xpath=//*[@id="content"]/div/div[2]/div/header/div/div/div[3]/div/div/button'.</msg>
+<status status="PASS" starttime="20211009 05:54:27.848" endtime="20211009 05:54:27.876"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>${element_my_account}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211009 05:54:27.876" endtime="20211009 05:54:27.890"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${element_my_account}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20211009 05:54:27.890" level="INFO">Clicking element 'xpath=//*[@id="content"]/div/div[2]/div/header/div/div/div[3]/div/div/ul/li[1]/a'.</msg>
+<status status="PASS" starttime="20211009 05:54:27.890" endtime="20211009 05:54:27.926"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>${element_create_new_key}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211009 05:54:27.926" endtime="20211009 05:54:27.943"/>
+</kw>
+<status status="PASS" starttime="20211009 05:54:27.848" endtime="20211009 05:54:27.943"/>
+</test>
+<test id="s1-t5" name="Create New Key">
+<kw name="Click Element" library="Selenium2Library">
+<arg>${element_create_new_key}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20211009 05:54:27.944" level="INFO">Clicking element 'xpath=//*[@id="content"]/div/div[2]/div/div/section[2]/div/div/div[2]/p/a/span[2]'.</msg>
+<status status="PASS" starttime="20211009 05:54:27.944" endtime="20211009 05:54:27.984"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>${element_create_key}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211009 05:54:27.984" endtime="20211009 05:54:28.001"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>${element_key_name}</arg>
+<arg>${input_key_name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211009 05:54:28.001" level="INFO">Typing text 'testePrime' into text field 'xpath=//*[@id="name"]'.</msg>
+<status status="PASS" starttime="20211009 05:54:28.001" endtime="20211009 05:54:28.073"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>${element_description}</arg>
+<arg>${input_description}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211009 05:54:28.073" level="INFO">Typing text 'Teste de RPA para a empresa Prime Control' into text field 'xpath=//*[@id="description"]'.</msg>
+<status status="PASS" starttime="20211009 05:54:28.073" endtime="20211009 05:54:28.168"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>${element_ip_address}</arg>
+<arg>${input_ip_address}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211009 05:54:28.169" level="INFO">Typing text '179.111.38.190' into text field 'xpath=//*[@id="range-0"]'.</msg>
+<status status="PASS" starttime="20211009 05:54:28.169" endtime="20211009 05:54:28.237"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${element_create_key}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20211009 05:54:28.237" level="INFO">Clicking element 'xpath=//*[@id="content"]/div/div[2]/div/div/section/div/div/div[2]/form/div[5]/button/span[1]'.</msg>
+<status status="PASS" starttime="20211009 05:54:28.237" endtime="20211009 05:54:28.267"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>${key_created_successfully}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211009 05:54:28.268" endtime="20211009 05:54:28.716"/>
+</kw>
+<kw name="Get Text" library="Selenium2Library">
+<var>${result_key_created}</var>
+<arg>${key_created_successfully}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20211009 05:54:28.728" level="INFO">${result_key_created} = Key created successfully.</msg>
+<status status="PASS" starttime="20211009 05:54:28.716" endtime="20211009 05:54:28.728"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${result_key_created}&quot; != &quot;Key created successfully.&quot;">
+<kw name="Fail" library="BuiltIn">
+<arg>"Key nao foi criada com sucesso (mensagem de sucesso inexistente)."</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" starttime="20211009 05:54:28.729" endtime="20211009 05:54:28.729"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${result_key_created}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20211009 05:54:28.729" endtime="20211009 05:54:28.729"/>
+</kw>
+<status status="NOT RUN" starttime="20211009 05:54:28.729" endtime="20211009 05:54:28.729"/>
+</branch>
+<status status="PASS" starttime="20211009 05:54:28.728" endtime="20211009 05:54:28.729"/>
+</if>
+<status status="PASS" starttime="20211009 05:54:27.943" endtime="20211009 05:54:28.729"/>
+</test>
+<test id="s1-t6" name="Write To CSV">
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>${element_created_api}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211009 05:54:28.730" endtime="20211009 05:54:29.175"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${element_created_api}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20211009 05:54:29.176" level="INFO">Clicking element 'xpath=//*[@id="content"]/div/div[2]/div/div/section[2]/div/div/div[2]/ul/li/a'.</msg>
+<status status="PASS" starttime="20211009 05:54:29.175" endtime="20211009 05:54:29.219"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>${element_api_key}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211009 05:54:29.219" endtime="20211009 05:54:29.234"/>
+</kw>
+<kw name="Get Text" library="Selenium2Library">
+<var>${api_key}</var>
+<arg>${element_api_key}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20211009 05:54:29.247" level="INFO">${api_key} = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6IjAyYmRkZmRkLWE5OTEtNDVhOS1hMWM0LTM...</msg>
+<status status="PASS" starttime="20211009 05:54:29.234" endtime="20211009 05:54:29.247"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${api_key}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20211009 05:54:29.248" level="INFO">eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6IjAyYmRkZmRkLWE5OTEtNDVhOS1hMWM0LTMxZmZiYmM2NjMxMSIsImlhdCI6MTYzMzc2OTY2OSwic3ViIjoiZGV2ZWxvcGVyL2QwNDM0NzA1LTliZDYtZWYxMS1hYmEzLTViODg0OWVmNjM5YyIsInNjb3BlcyI6WyJyb3lhbGUiXSwibGltaXRzIjpbeyJ0aWVyIjoiZGV2ZWxvcGVyL3NpbHZlciIsInR5cGUiOiJ0aHJvdHRsaW5nIn0seyJjaWRycyI6WyIxNzkuMTExLjM4LjE5MCJdLCJ0eXBlIjoiY2xpZW50In1dfQ.fFd0Ns0fILNw2m3DDFiV8nj-WdfeK2Ly15QqKalJbgAVmlRMRSlebRARvkbv5CL-NEsVM8DtTZedYBxDr1evjg</msg>
+<status status="PASS" starttime="20211009 05:54:29.247" endtime="20211009 05:54:29.248"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${api_clan}</var>
+<arg>url=https://api.clashroyale.com/v1/clans?name=Resistance</arg>
+<arg>api_key=${api_key}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20211009 05:54:29.248" level="INFO">${api_clan} = {'url': 'https://api.clashroyale.com/v1/clans?name=Resistance', 'api_key': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJ...</msg>
+<status status="PASS" starttime="20211009 05:54:29.248" endtime="20211009 05:54:29.248"/>
+</kw>
+<kw name="Get Clan Information" library="API_CLASH">
+<var>${obj_clan}</var>
+<arg>${api_clan}</arg>
+<msg timestamp="20211009 05:54:30.332" level="INFO">C:\Python39\lib\site-packages\urllib3\connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.clashroyale.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20211009 05:54:30.333" level="INFO">${obj_clan} = {'items': [{'tag': '#QRJVY8V9', 'name': 'RESISTANCE', 'type': 'open', 'badgeId': 16000168, 'clanScore': 48307, 'clanWarTrophies': 220, 'location': {'id': 57000246, 'name': 'Ukraine', 'isCountry': True...</msg>
+<status status="PASS" starttime="20211009 05:54:29.248" endtime="20211009 05:54:30.333"/>
+</kw>
+<kw name="Get Clan Tag" library="API_CLASH">
+<var>${clan_tag}</var>
+<arg>${obj_clan}</arg>
+<msg timestamp="20211009 05:54:30.334" level="INFO">${clan_tag} = %239V2YV8YJ</msg>
+<status status="PASS" starttime="20211009 05:54:30.333" endtime="20211009 05:54:30.334"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${api_clan_member}</var>
+<arg>url=https://api.clashroyale.com/v1/clans/${clan_tag}/members</arg>
+<arg>api_key=${api_key}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20211009 05:54:30.334" level="INFO">${api_clan_member} = {'url': 'https://api.clashroyale.com/v1/clans/%239V2YV8YJ/members', 'api_key': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGw...</msg>
+<status status="PASS" starttime="20211009 05:54:30.334" endtime="20211009 05:54:30.334"/>
+</kw>
+<kw name="Get Clan Member Information" library="API_CLASH">
+<var>${obj_clan_member}</var>
+<arg>${api_clan_member}</arg>
+<msg timestamp="20211009 05:54:31.190" level="INFO">C:\Python39\lib\site-packages\urllib3\connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.clashroyale.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20211009 05:54:31.191" level="INFO">${obj_clan_member} = {'items': [{'tag': '#9GGC9UJ0C', 'name': 'Diozer', 'role': 'leader', 'lastSeen': '20211008T233111.000Z', 'expLevel': 13, 'trophies': 5936, 'arena': {'id': 54000014, 'name': 'Challenger III'}, 'clanRan...</msg>
+<status status="PASS" starttime="20211009 05:54:30.334" endtime="20211009 05:54:31.191"/>
+</kw>
+<kw name="Write To Csv" library="API_CLASH">
+<arg>${path_csv}</arg>
+<arg>${obj_clan_member}</arg>
+<status status="PASS" starttime="20211009 05:54:31.191" endtime="20211009 05:54:31.194"/>
+</kw>
+<status status="PASS" starttime="20211009 05:54:28.729" endtime="20211009 05:54:31.195"/>
+</test>
+<kw name="Close All Browsers" library="Selenium2Library" type="TEARDOWN">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20211009 05:54:31.195" endtime="20211009 05:54:33.311"/>
+</kw>
+<status status="PASS" starttime="20211009 05:54:18.984" endtime="20211009 05:54:33.311"/>
+</suite>
+<statistics>
+<total>
+<stat pass="6" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="6" fail="0" skip="0" id="s1" name="Robot">Robot</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
