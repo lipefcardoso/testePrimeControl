@@ -97,7 +97,6 @@ Write To CSV
     Log    Collecting clan info ${api_clan} 
     ${obj_clan} =    Get Clan Information    ${api_clan}
     ${clan_tag} =    Get Clan Tag    ${obj_clan}
-    Log    Collecting clan tag     ${clan_tag}
     ${api_clan_member} =    Create Dictionary    url=https://api.clashroyale.com/v1/clans/${clan_tag}/members    api_key=${api_key}
     ${obj_clan_member} =    Get Clan Member Information    ${api_clan_member}
     Write To Csv    ${path_csv}    ${obj_clan_member}
